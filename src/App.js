@@ -1,18 +1,17 @@
-import "./App";
-import RegisterImg from "./formik/assets/register.jpg";
-import { SignUp } from "./formik/components/SignUp";
+import { React } from "react";
+import "./App.css";
+// adding some ui from the app using chakra
+// import { Heading, Text } from "@chakra-ui/react";
+// importing nav components
+import Nav from "./components/Nav";
+
+// importing date-fns package for time checker
+// import { format } from 'date-fns'
 
 function App() {
   return (
-    <div className="container mt-3">
-      <div className="row">
-        <div className="col-md-5">
-          <SignUp />
-        </div>
-        <div className="col-md-7 my-auto">
-          <img src={RegisterImg} alt="HeroImg" className="img-fluid w-50" />
-        </div>
-      </div>
+    <div className="App">
+      <Nav />
     </div>
   );
 }

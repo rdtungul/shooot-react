@@ -1,0 +1,35 @@
+import React from "react";
+// importing the firebase-config for the user auth (google auth)
+import { auth, provider } from "../firebase-config";
+// importing firebase package to enable pop-up
+import { signInWithPopup } from "firebase/auth";
+// adding react-router-dom to redirect the login page to home after logging in to google auth
+import { useNavigate } from "react-router-dom";
+import { Heading } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export default function Login({ setIsAuth }) {
+  // react-router-dom navigation to homepage after login
+  let navigate = useNavigate();
+
+  // function to login from google
+  const signInWithGoogle = async (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, provider).then((res) => {
+      // adding a user log inside the cache using Local Storage
+      localStorage.setItem("isAuth", true);
+      // determining if we are logged in or not
+      setIsAuth(true);
+      // navigation link to homepage after login
+      navigate("/");
+    });
+  };
+  return (
+    <div className="login-page">
+      <Heading as="h4">Sign In With Google to Continue</Heading>
+      <button className="login-with-google-btn" onClick={signInWithGoogle}>
+        <FontAwesomeIcon icon="fa-brands fa-google" /> Sign in with Google
+      </button>
+    </div>
+  );
+}
