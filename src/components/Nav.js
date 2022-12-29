@@ -36,7 +36,10 @@ export default function Nav() {
           ) : (
             <div>
               <Link to="/createpost"> Create Post</Link>
-              <button onClick={signOutUser}> Logout</button>
+              <button className="logout-btn" onClick={signOutUser}>
+                {" "}
+                Logout
+              </button>
             </div>
           )}
         </nav>

@@ -45,7 +45,7 @@ export default function CreatePost({ isAuth }) {
       // if the user is not logged in it will navigate to the login page
       navigate("/login");
     }
-  }, []);
+  });
 
   return (
     <div className="create-post-page">
@@ -54,11 +54,12 @@ export default function CreatePost({ isAuth }) {
         <Box p={6} rounded="md" w="100%">
           <VStack spacing={4}>
             <HStack>
-              <label htmlFor="title">Title: </label>
               <input
+                className="cp--text-title"
                 placeholder="Enter title..."
                 id="title"
                 name="title"
+                required
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -66,11 +67,12 @@ export default function CreatePost({ isAuth }) {
             </HStack>
 
             <HStack>
-              <label htmlFor="post">Post: </label>
               <textarea
+                className="cp--text-content"
                 placeholder="Create posts..."
                 id="post"
                 name="post"
+                required
                 onChange={(e) => {
                   setPostText(e.target.value);
                 }}
@@ -78,6 +80,7 @@ export default function CreatePost({ isAuth }) {
             </HStack>
 
             <button
+              className="cp--button"
               onClick={createPost}
               type="submit"
               colorScheme="purple"
