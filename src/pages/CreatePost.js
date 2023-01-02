@@ -38,14 +38,14 @@ export default function CreatePost({ isAuth }) {
       },
     });
     // navigation link to homepage after creating post
-    navigate("/shooot-react");
+    navigate("/");
   };
 
   useEffect(() => {
     // authentication validation for login user
     if (!isAuth) {
       // if the user is not logged in it will navigate to the login page
-      navigate("/shooot-react/login");
+      navigate("/login");
     }
   });
 

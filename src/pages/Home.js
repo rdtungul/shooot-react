@@ -21,7 +21,6 @@ export default function Home({ isAuth }) {
       // retrieved data in firebase db
       setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
     // function invocation
     getPosts();
   }, []);
@@ -35,7 +34,7 @@ export default function Home({ isAuth }) {
           <div className="homepage--home">
             <Heading as="h1">Shooot your shot now!</Heading>
             <Text>Connect and make a post to the world.</Text>
-            <Link className="homepage--login" to="/shooot-react/login">
+            <Link className="homepage--login" to="/login">
               Get started
             </Link>
           </div>
