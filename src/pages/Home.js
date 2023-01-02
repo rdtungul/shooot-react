@@ -6,8 +6,6 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase-config";
 // importing footer section
 import Footer from "../components/Footer";
-// google analytics
-import ReactGA from "react-ga";
 
 export default function Home({ isAuth }) {
   // setting up the list of posts inside the firebase db
@@ -17,8 +15,6 @@ export default function Home({ isAuth }) {
 
   // calling the firebase to retrieve the info in the db
   useEffect(() => {
-    // ga non-interactive
-    ReactGA.pageview(window.location.pathname);
     const getPosts = async () => {
       // contain the info about the list inside db
       const data = await getDocs(postsCollectionRef);

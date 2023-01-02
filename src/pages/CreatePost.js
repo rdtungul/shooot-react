@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { VStack, HStack, Heading, Box } from "@chakra-ui/react";
 import { async } from "@firebase/util";
 // importing addDoc from firestore under firebase package
