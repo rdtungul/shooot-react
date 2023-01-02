@@ -24,7 +24,7 @@ export default function Login({ setIsAuth }) {
       // determining if we are logged in or not
       setIsAuth(true);
       // navigation link to homepage after login
-      navigate("/shooot-react");
+      navigate("/");
     });
   };
 
