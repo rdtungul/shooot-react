@@ -22,7 +22,7 @@ export default function Nav() {
       // set the lolgin auth to false
       setIsAuth(false);
       // navigation link to landing page after logout
-      window.location.pathname = "/login";
+      window.location.pathname = "/shooot-react";
     });
   };
 
