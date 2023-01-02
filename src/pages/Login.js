@@ -23,9 +23,7 @@ export default function Login({ setIsAuth }) {
   const signInWithGoogle = async (e) => {
     e.preventDefault();
     // // ga interactive
-    // ReactGA.event({
-    //   setIsAuth(true);
-    // })
+    ReactGA.pageview("/shooot-react");
 
     signInWithPopup(auth, provider).then((res) => {
       // adding a user log inside the cache using Local Storage
