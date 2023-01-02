@@ -35,34 +35,43 @@ export default function Home({ isAuth }) {
           <div className="homepage--home">
             <Heading as="h1">Shooot your shot now!</Heading>
             <Text>Connect and make a post to the world.</Text>
-            <Link className="homepage--login" to="/login">
+            <Link className="homepage--login" to="/shooot-react/login">
               Get started
             </Link>
           </div>
+          <VStack>
+            {postLists.map((post) => {
+              return (
+                <Box className="post--container" key={post.id}>
+                  <Heading as="h3">{post.title}</Heading>
+                  <Text>{post.postText}</Text>
+                  <label>{post.displayUserName}</label>
+                  <label>~ {post.author.displayUserName}</label>
+                </Box>
+              );
+            })}
+          </VStack>
           <Footer />
         </div>
       ) : (
-        <Heading as="h1" py={50} setIsAuth={setIsAuth}>
-          All posts
-        </Heading>
+        <div>
+          <Heading as="h1" py={50} setIsAuth={setIsAuth}>
+            All posts
+          </Heading>
+          <VStack>
+            {postLists.map((post) => {
+              return (
+                <Box className="post--container" key={post.id}>
+                  <Heading as="h3">{post.title}</Heading>
+                  <Text>{post.postText}</Text>
+                  <label>{post.displayUserName}</label>
+                  <label>~ {post.author.displayUserName}</label>
+                </Box>
+              );
+            })}
+          </VStack>
+        </div>
       )}
-      <VStack>
-        {postLists.map((post) => {
-          return (
-            <Box className="post--container" key={post.id}>
-              <Box className="delete-post">
-                {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button className="delete-btn">&#128465;</button>
-                )}
-              </Box>
-              <Heading as="h3">{post.title}</Heading>
-              <Text>{post.postText}</Text>
-              <label>{post.displayUserName}</label>
-              <label>~ {post.author.displayUserName}</label>
-            </Box>
-          );
-        })}
-      </VStack>
     </div>
   );
 }
