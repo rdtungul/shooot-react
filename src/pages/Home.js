@@ -6,6 +6,8 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase-config";
 // importing footer section
 import Footer from "../components/Footer";
+// google analytics
+import ReactGA from "react-ga";
 
 export default function Home({ isAuth }) {
   // setting up the list of posts inside the firebase db
@@ -15,12 +17,15 @@ export default function Home({ isAuth }) {
 
   // calling the firebase to retrieve the info in the db
   useEffect(() => {
+    // ga non-interactive
+    ReactGA.pageview(window.location.pathname);
     const getPosts = async () => {
       // contain the info about the list inside db
       const data = await getDocs(postsCollectionRef);
       // retrieved data in firebase db
       setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
+
     // function invocation
     getPosts();
   }, []);
@@ -34,7 +39,7 @@ export default function Home({ isAuth }) {
           <div className="homepage--home">
             <Heading as="h1">Shooot your shot now!</Heading>
             <Text>Connect and make a post to the world.</Text>
-            <Link className="homepage--login" to="/login">
+            <Link className="homepage--login" to="/shooot-react/login">
               Get started
             </Link>
           </div>

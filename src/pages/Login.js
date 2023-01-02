@@ -7,8 +7,6 @@ import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Heading } from "@chakra-ui/react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// google analytics
-// import ReactGA from "react-ga";
 
 export default function Login({ setIsAuth }) {
   // react-router-dom navigation to homepage after login
@@ -24,15 +22,10 @@ export default function Login({ setIsAuth }) {
       // determining if we are logged in or not
       setIsAuth(true);
       // navigation link to homepage after login
-      navigate("/");
+      navigate("/shooot-react");
     });
   };
 
-  //   // react ga initialization
-  // useEffect(() => {
-  //   // ga non-interactive
-  //   ReactGA.pageview(window.location.pathname);
-  // }, []);
   return (
     <div className="login-page">
       <Heading as="h4">Sign In With Google to Continue</Heading>
