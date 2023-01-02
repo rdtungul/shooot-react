@@ -11,19 +11,12 @@ import { Heading } from "@chakra-ui/react";
 import ReactGA from "react-ga";
 
 export default function Login({ setIsAuth }) {
-  // react ga initialization
-  useEffect(() => {
-    // ga non-interactive
-    ReactGA.pageview(window.location.pathname);
-  }, []);
   // react-router-dom navigation to homepage after login
   let navigate = useNavigate();
 
   // function to login from google
   const signInWithGoogle = async (e) => {
     e.preventDefault();
-    // // ga interactive
-    ReactGA.pageview("/shooot-react");
 
     signInWithPopup(auth, provider).then((res) => {
       // adding a user log inside the cache using Local Storage
@@ -34,6 +27,12 @@ export default function Login({ setIsAuth }) {
       navigate("/shooot-react");
     });
   };
+
+  // react ga initialization
+  useEffect(() => {
+    // ga non-interactive
+    ReactGA.pageview(window.location.pathname);
+  }, []);
   return (
     <div className="login-page">
       <Heading as="h4">Sign In With Google to Continue</Heading>
