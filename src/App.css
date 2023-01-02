@@ -35,8 +35,10 @@ a:hover {
   background-color: #E1D7C6;
   border-radius: 15px;
 }
-.delete-btn {
-  float: right;
+.author-text {
+  font-size: 12px !important;
+  color: grey !important;
+  margin-bottom: 25px;
 }
 
 /* homepage section */

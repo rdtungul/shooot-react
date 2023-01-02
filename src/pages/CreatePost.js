@@ -8,6 +8,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase-config";
 // importing the useNavigate hook for accessing the site route using react-router-dom
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 export default function CreatePost({ isAuth }) {
   // setting up the usState for the title
@@ -22,8 +23,9 @@ export default function CreatePost({ isAuth }) {
   const createPost = async () => {
     // adding date and time logged
 
-    const date = new Date();
+    var date = moment().format("LL");
     console.log(date);
+
     // adding document to the firebase table "posts"
     await addDoc(postsCollectionRef, {
       title,
@@ -31,7 +33,7 @@ export default function CreatePost({ isAuth }) {
       author: {
         name: auth.currentUser.displayName,
         id: auth.currentUser.uid,
-        createdAt: date,
+        dateTime: date,
         displayUserName: "Anonymous",
       },
     });
@@ -55,11 +57,11 @@ export default function CreatePost({ isAuth }) {
           <VStack spacing={4}>
             <HStack>
               <input
+                required
                 className="cp--text-title"
                 placeholder="Enter title..."
                 id="title"
                 name="title"
-                required
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -68,11 +70,11 @@ export default function CreatePost({ isAuth }) {
 
             <HStack>
               <textarea
+                required
                 className="cp--text-content"
                 placeholder="Create posts..."
                 id="post"
                 name="post"
-                required
                 onChange={(e) => {
                   setPostText(e.target.value);
                 }}

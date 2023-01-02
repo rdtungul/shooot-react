@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import documents inside the db
 import { getDocs, collection } from "firebase/firestore";
-import { auth, db } from "../firebase-config";
+import { db } from "../firebase-config";
 // importing footer section
 import Footer from "../components/Footer";
 
@@ -43,6 +43,9 @@ export default function Home({ isAuth }) {
             {postLists.map((post) => {
               return (
                 <Box className="post--container" key={post.id}>
+                  <Box className="author-post">
+                    <Text className="author-text">{post.author.dateTime}</Text>
+                  </Box>
                   <Heading as="h3">{post.title}</Heading>
                   <Text>{post.postText}</Text>
                   <label>{post.displayUserName}</label>
@@ -62,6 +65,9 @@ export default function Home({ isAuth }) {
             {postLists.map((post) => {
               return (
                 <Box className="post--container" key={post.id}>
+                  <Box className="author-post">
+                    <Text className="author-text">{post.author.dateTime}</Text>
+                  </Box>
                   <Heading as="h3">{post.title}</Heading>
                   <Text>{post.postText}</Text>
                   <label>{post.displayUserName}</label>
