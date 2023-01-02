@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shooot-react/static/css/main.20e85ecc.css",
-    "main.js": "/shooot-react/static/js/main.551f2ca2.js",
+    "main.js": "/shooot-react/static/js/main.fe46057c.js",
     "index.html": "/shooot-react/index.html",
     "main.20e85ecc.css.map": "/shooot-react/static/css/main.20e85ecc.css.map",
-    "main.551f2ca2.js.map": "/shooot-react/static/js/main.551f2ca2.js.map"
+    "main.fe46057c.js.map": "/shooot-react/static/js/main.fe46057c.js.map"
   },
   "entrypoints": [
     "static/css/main.20e85ecc.css",
-    "static/js/main.551f2ca2.js"
+    "static/js/main.fe46057c.js"
   ]
 }
