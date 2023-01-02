@@ -45,7 +45,7 @@ export default function CreatePost({ isAuth }) {
     // authentication validation for login user
     if (!isAuth) {
       // if the user is not logged in it will navigate to the login page
-      navigate("/login");
+      navigate("/shooot-react/login");
     }
   });
 
