@@ -22,7 +22,7 @@ export default function Nav() {
       // set the lolgin auth to false
       setIsAuth(false);
       // navigation link to landing page after logout
-      window.location.pathname = "/shooot-react/login";
+      window.location.pathname = "/login";
     });
   };
 
@@ -32,7 +32,7 @@ export default function Nav() {
         <nav>
           <Link to="/shooot-react"> Home</Link>
           {!isAuth ? (
-            <Link to="/shooot-react/login"> Login</Link>
+            <Link to="/login"> Login</Link>
           ) : (
             <div>
               <Link to="/shooot-react/createpost"> Create Post</Link>
@@ -49,10 +49,7 @@ export default function Nav() {
             path="/shooot-react/createpost"
             element={<CreatePost isAuth={isAuth} />}
           />
-          <Route
-            path="/shooot-react/login"
-            element={<Login setIsAuth={setIsAuth} />}
-          />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         </Routes>
       </Router>
     </div>
