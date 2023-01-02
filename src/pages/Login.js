@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 // importing the firebase-config for the user auth (google auth)
 import { auth, provider } from "../firebase-config";
 // importing firebase package to enable pop-up
